@@ -1,0 +1,126 @@
+@import '@/shared/styles/mixins';
+@import '@/shared/styles/variables';
+
+.filtersContent {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	max-height: calc(100vh - 375px);
+	padding-right: 12px;
+	margin-top: 20px;
+	overflow-y: auto;
+	scrollbar-width: thin;
+	scrollbar-color: var(--accent-color) #ffffff;
+	&::-webkit-scrollbar {
+		width: 5px;
+	}
+	@media (max-width: $desktop-sm) {
+		right: 16px;
+		top: 189px;
+		max-width: 550px;
+		max-height: calc(100vh - 358px);
+	}
+	@media (max-width: $tab) {
+		max-height: calc(100vh - 388px);
+	}
+	@media (max-width: $tab-sm) {
+		max-width: 100%;
+		max-height: calc(80vh - 388px);
+	}
+	.filterRow {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		align-items: flex-start;
+		p {
+			@include text-m;
+		}
+		input {
+			margin: 0;
+		}
+		.inputList {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 8px;
+		}
+		.inputGrid {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 8px;
+		}
+	}
+}
+
+.filtersList.active {
+	transform: translateY(0);
+	pointer-events: all;
+	opacity: 1;
+}
+.filtersList.left {
+	transform: translateX(-642px);
+	@media (max-width: $desktop-sm) {
+		transform: translateX(-556px);
+	}
+}
+.filtersList {
+	width: 633px;
+	box-shadow: var(--shadow);
+	border-radius: var(--radius-s);
+	background: var(--white-color);
+	position: absolute;
+	top: 197px;
+	right: 24px;
+	z-index: 3;
+
+	padding: 20px 14px 20px 24px;
+	transform: translateY(-50px);
+	pointer-events: none;
+	opacity: 0;
+	max-height: calc(100vh - 221px);
+
+	transition:
+		transform var(--trs-300),
+		opacity var(--trs-300);
+	@media (max-width: $desktop-sm) {
+		right: 16px;
+		top: 189px;
+		max-width: 550px;
+		max-height: calc(100vh - 205px);
+	}
+	@media (max-width: $tab) {
+		top: 234px;
+		max-width: 360px;
+		padding: 16px;
+		max-height: calc(100vh - 250px);
+	}
+	@media (max-width: $tab-sm) {
+		top: 129px;
+		max-width: 100%;
+		width: 100%;
+		padding: 16px;
+		left: 0;
+		right: 0;
+		max-height: calc(80vh - 250px);
+		box-shadow: var(--shadow-bottom);
+		border-radius: 0 0 var(--radius-s) var(--radius-s);
+		transform: translateX(0);
+	}
+	.filterListTop {
+		display: flex;
+		justify-content: space-between;
+	}
+	.filterListBottom {
+		padding-top: 20px;
+		margin-top: 20px;
+		border-top: 1px solid var(--line-color);
+		.closeBtn {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			p {
+				@include text-sm;
+				color: var(--secondary-color);
+			}
+		}
+	}
+}

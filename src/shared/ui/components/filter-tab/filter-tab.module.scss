@@ -1,0 +1,118 @@
+@import '@/shared/styles/mixins';
+@import '@/shared/styles/variables';
+
+.filterTab.active {
+	background: var(--accent-color);
+	.content {
+		.title {
+			color: var(--white-color);
+		}
+		.count {
+			color: var(--white-color);
+			span {
+				color: var(--white-color);
+				opacity: 0.5;
+			}
+		}
+	}
+	.icon {
+		svg {
+			path {
+				fill: var(--white-color);
+			}
+		}
+	}
+}
+.filterTab {
+	border: 1px solid var(--line-color);
+	border-radius: var(--radius-s);
+	display: flex;
+	gap: 8px;
+	padding: 9px 16px 12px;
+	justify-content: space-between;
+	background: var(--white-color);
+	transition:
+		background var(--trs-300),
+		border-color var(--trs-300);
+	@media (max-width: $tab) {
+		flex-direction: column-reverse;
+		align-items: flex-start;
+		padding: 10px 15px;
+	}
+	@media (max-width: $tab-sm) {
+		flex-direction: row-reverse;
+		align-items: flex-start;
+		padding: 0 15px;
+		border: none;
+		gap: 8px;
+		min-width: fit-content;
+		border-right: 1px solid var(--line-color);
+		border-radius: 0px;
+		&:last-child {
+			border-right: none;
+		}
+	}
+	&:hover {
+		background: var(--tertiary-color);
+		border-color: var(--accent-color);
+		.content {
+			.title {
+				color: var(--primary-color);
+			}
+			.count {
+				color: var(--primary-color);
+				span {
+					color: var(--secondary-color);
+				}
+			}
+		}
+		.icon {
+			svg {
+				path {
+					fill: #50565f;
+				}
+			}
+		}
+	}
+	.content {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1px;
+		@media (max-width: $tab) {
+			gap: 0;
+		}
+		.title {
+			@include text-m;
+			transition: color var(--trs-300);
+			@media (max-width: $tab) {
+				@include text-sm;
+			}
+			@media (max-width: $tab-sm) {
+				white-space: nowrap;
+			}
+		}
+		.count {
+			@include text-s;
+			transition: color var(--trs-300);
+
+			span {
+				@include text-xs;
+				transition:
+					opacity var(--trs-300),
+					color var(--trs-300);
+			}
+		}
+	}
+	.icon {
+		svg {
+			@media (max-width: $tab) {
+				width: 16px;
+				height: 16px;
+			}
+			path {
+				transition: var(--trs-300);
+			}
+		}
+	}
+}

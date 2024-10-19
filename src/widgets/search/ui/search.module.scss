@@ -1,0 +1,26 @@
+@import '@/shared/styles/variables';
+
+.searchWrapper.active {
+	display: block;
+}
+.searchWrapper {
+	position: absolute;
+	top: 24px;
+	left: 24px;
+	z-index: 3;
+	width: 370px;
+	@media (max-width: $desktop-sm) {
+		left: 16px;
+		top: 16px;
+	}
+	@media (max-width: $tab) {
+		width: 300px;
+	}
+	@media (max-width: $tab-sm) {
+		display: none;
+		top: 49px;
+		right: 0;
+		left: 0;
+		width: 100%;
+	}
+}

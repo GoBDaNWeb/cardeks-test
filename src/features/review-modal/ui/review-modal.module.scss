@@ -1,0 +1,73 @@
+@import '@/shared/styles/mixins';
+@import '@/shared/styles/variables';
+
+.reviewModal {
+	.modalContent {
+		background: var(--white-color);
+		max-width: 502px;
+		width: 100%;
+		border-radius: var(--radius-s);
+		box-shadow: var(--shadow);
+		padding: 24px 32px;
+		position: relative;
+		@media (max-width: $tab) {
+			padding: 16px;
+			margin: 0 16px;
+		}
+		.closeBtn {
+			position: absolute;
+			top: 14px;
+			right: 14px;
+		}
+		form {
+			.inputs {
+				margin-top: 20px;
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+				.inputWrapper {
+					display: flex;
+					flex-direction: column;
+					gap: 8px;
+					p {
+						@include text-m;
+						@media (max-width: $tab) {
+							@include text-sm;
+						}
+					}
+					input {
+						margin: 0;
+					}
+				}
+			}
+			.formBottom {
+				margin-top: 20px;
+				display: flex;
+				justify-content: space-between;
+				@media (max-width: $tab-sm) {
+					flex-direction: column-reverse;
+					gap: 16px;
+				}
+				.submitBtn {
+					width: 218px;
+				}
+				.fileBtn {
+					display: flex;
+					align-items: center;
+					gap: 8px;
+					svg {
+						width: 16px;
+						height: 16px;
+						path {
+							stroke: var(--secondary-color);
+						}
+					}
+					p {
+						@include text-sm;
+						color: var(--secondary-color);
+					}
+				}
+			}
+		}
+	}
+}

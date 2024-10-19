@@ -1,0 +1,43 @@
+@import '@/shared/styles/mixins';
+@import '@/shared/styles/variables';
+.guideModal {
+	.modalContent {
+		background: var(--white-color);
+		max-width: 502px;
+		border-radius: var(--radius-s);
+		box-shadow: var(--shadow);
+		padding: 24px 32px;
+		position: relative;
+		width: 100%;
+		@media (max-width: $tab) {
+			padding: 16px;
+			margin: 0 16px;
+		}
+		.closeBtn {
+			position: absolute;
+			top: 14px;
+			right: 14px;
+		}
+		.modalContentText {
+			p {
+				margin-top: 16px;
+				@include text-m;
+				@media (max-width: $tab) {
+					@include text-s;
+				}
+				svg {
+					width: 16px;
+					height: 16px;
+					margin: 0 5px;
+					path {
+						fill: var(--accent-color);
+						stroke: var(--accent-color);
+					}
+					circle {
+						fill: var(--accent-color);
+					}
+				}
+			}
+		}
+	}
+}

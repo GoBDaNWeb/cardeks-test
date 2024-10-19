@@ -1,0 +1,59 @@
+@import '@/shared/styles/variables';
+
+.searchInput {
+	padding: 12px 20px;
+	background: var(--white-color);
+	border-radius: var(--radius-s);
+	display: flex;
+	align-items: center;
+	box-shadow: var(--shadow);
+	box-sizing: border-box;
+	transition: border-color var(--trs-300);
+	border: 1px solid rgba(0, 0, 0, 0);
+	height: 48px;
+	justify-content: space-between;
+
+	&:hover {
+		border-color: var(--accent-color);
+	}
+	@media (max-width: $tab) {
+		padding: 10px 16px;
+		height: 36px;
+	}
+	@media (max-width: $tab-sm) {
+		border-radius: 0 0 var(--radius-s) var(--radius-s);
+		box-shadow: var(--shadow-bottom);
+	}
+	input {
+		width: 100%;
+	}
+	.icons {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		button {
+			position: relative;
+			padding-left: 14px;
+			@media (max-width: $tab) {
+				padding-left: 12px;
+			}
+			&:before {
+				content: '';
+				position: absolute;
+				width: 1px;
+				height: 100%;
+				background: var(--line-color);
+				left: 0;
+			}
+			svg {
+				@media (max-width: $tab) {
+					width: 16px;
+					height: 16px;
+				}
+				path {
+					transition: var(--trs-300);
+				}
+			}
+		}
+	}
+}

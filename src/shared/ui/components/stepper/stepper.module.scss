@@ -1,0 +1,36 @@
+@import '@/shared/styles/variables';
+
+.stepper {
+	display: flex;
+	flex-direction: column;
+	background: var(--white-color);
+	border-radius: var(--radius-s);
+	padding: 11px;
+	gap: 5px;
+	box-shadow: var(--shadow);
+	@media (max-width: $tab) {
+		padding: 12px;
+		gap: 8px;
+	}
+	@media (max-width: $tab-sm) {
+		padding: 12px 10px;
+		gap: 8px;
+	}
+	.line {
+		width: 100%;
+		height: 1px;
+		background: var(--tertiary-color);
+	}
+	button {
+		@media (max-width: $tab) {
+			width: 16px;
+			height: 16px;
+		}
+	}
+	svg {
+		@media (max-width: $tab) {
+			width: 16px;
+			height: 16px;
+		}
+	}
+}
